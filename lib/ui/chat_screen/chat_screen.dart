@@ -45,15 +45,17 @@ class _ChatScreenState extends State<ChatScreen> {
               reverse: true,
               child: fetchMessageProvider.messages != null
                   ? fetchMessageProvider.messages!.isNotEmpty
-                      ? Column(children: [
-                          Container(height: 16),
-                          ...fetchMessageProvider.messages!
-                              .map((e) => e.userName == userProvider.userName
-                                  ? RightBalloon(message: e)
-                                  : LeftBalloon(message: e))
-                              .toList(),
-                          Container(height: 16),
-                        ])
+                      ? Column(
+                          children: [
+                            Container(height: 16),
+                            ...fetchMessageProvider.messages!
+                                .map((e) => e.userName == userProvider.userName
+                                    ? RightBalloon(message: e)
+                                    : LeftBalloon(message: e))
+                                .toList(),
+                            Container(height: 16),
+                          ],
+                        )
                       : const Text('メッセージなし')
                   : const Text('読み込み中'),
             ),

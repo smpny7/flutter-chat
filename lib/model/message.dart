@@ -9,9 +9,9 @@ class Message {
   final String userName;
   final String text;
   @JsonKey(name : 'created_at')
-  final DateTime? createdAt;
+  final DateTime createdAt;
   @JsonKey(name : 'updated_at')
-  final DateTime? updatedAt;
+  final DateTime updatedAt;
   Message({required this.id, required this.userName, required this.text, required this.createdAt, required this.updatedAt});
 
   factory Message.fromJson(Map<String, dynamic> json) => _$MessageFromJson(json);
