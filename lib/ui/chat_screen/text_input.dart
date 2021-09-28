@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_chat/model/fetch_message.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:provider/provider.dart';
 
 class TextInput extends StatelessWidget {
   const TextInput({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    TextEditingController textController = TextEditingController();
+
     return Container(
       decoration: BoxDecoration(
         boxShadow: [
@@ -41,6 +46,7 @@ class TextInput extends StatelessWidget {
                   maxHeight: 200,
                 ),
                 child: TextField(
+                  controller: textController,
                   decoration: InputDecoration(
                     border: InputBorder.none,
                     counterText: '',
@@ -52,7 +58,17 @@ class TextInput extends StatelessWidget {
             ),
           ),
           IconButton(
-            onPressed: () => print('HEY'),
+            onPressed: () async => textController.text != ''
+                ? await context
+                        .read<FetchMessageProvider>()
+                        .sendMessage(textController.text)
+                    ? textController.text = ''
+                    : Fluttertoast.showToast(
+                        msg: "送信に失敗しました",
+                        gravity: ToastGravity.BOTTOM,
+                        backgroundColor: Colors.grey.shade600,
+                      )
+                : null,
             icon: const Icon(
               Icons.send,
               color: Colors.blue,

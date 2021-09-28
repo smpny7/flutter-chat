@@ -9,4 +9,10 @@ class FetchMessageProvider extends ChangeNotifier {
     messages = await Connection().fetchMessages();
     notifyListeners();
   }
+
+  sendMessage(String text) async {
+    var isSuccessful = await Connection().sendMessage(text);
+    notifyListeners();
+    return isSuccessful;
+  }
 }
