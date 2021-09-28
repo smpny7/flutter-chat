@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_chat/model/message.dart';
 
 class LeftBalloon extends StatelessWidget {
-  const LeftBalloon({Key? key}) : super(key: key);
+  final Message message;
+  const LeftBalloon({required this.message, Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -16,9 +18,9 @@ class LeftBalloon extends StatelessWidget {
           color: Colors.grey.shade300,
         ),
         child: Padding(
-          padding: const EdgeInsets.fromLTRB(24, 16, 16, 16),
+          padding:  const EdgeInsets.fromLTRB(20, 16, 16, 16),
           child: Text(
-            'こんにちはこんにちはこんにちはこんにちはこんにちはこんにちはこんにちはこんにちはこんにちはこんにちはこんにちはこんにちはこんにちはこんにちは',
+            message.text,
             style: TextStyle(color: Colors.grey.shade800),
           ),
         ),

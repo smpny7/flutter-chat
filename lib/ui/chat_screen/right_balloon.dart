@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_chat/model/message.dart';
 
 class RightBalloon extends StatelessWidget {
-  const RightBalloon({Key? key}) : super(key: key);
+  final Message message;
+  const RightBalloon({required this.message, Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -28,11 +30,11 @@ class RightBalloon extends StatelessWidget {
             ],
           ),
         ),
-        child: const Padding(
-          padding: EdgeInsets.fromLTRB(24, 16, 16, 16),
+        child: Padding(
+          padding: const EdgeInsets.fromLTRB(20, 16, 16, 16),
           child: Text(
-            'こんにちはこんにちはこんにちはこんにちはこんにちはこんにちはこんにちはこんにちはこんにちはこんにちはこんにちはこんにちはこんにちはこんにちは',
-            style: TextStyle(color: Colors.white),
+            message.text,
+            style: const TextStyle(color: Colors.white),
           ),
         ),
       ),
