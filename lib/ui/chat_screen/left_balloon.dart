@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_chat/model/message.dart';
 import 'package:intl/intl.dart';
@@ -17,7 +16,7 @@ class LeftBalloon extends StatelessWidget {
           child: Container(
             margin: const EdgeInsets.fromLTRB(16, 10, 100, 4),
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.only(
+              borderRadius: const BorderRadius.only(
                 topRight: Radius.circular(30),
                 topLeft: Radius.circular(30),
                 bottomRight: Radius.circular(30),

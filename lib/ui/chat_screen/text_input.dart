@@ -47,7 +47,7 @@ class TextInput extends StatelessWidget {
                 ),
                 child: TextField(
                   controller: textController,
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     border: InputBorder.none,
                     counterText: '',
                   ),

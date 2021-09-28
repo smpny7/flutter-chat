@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_chat/model/fetch_message.dart';
 import 'package:flutter_chat/model/user.dart';
+import 'package:flutter_chat/view_model/user_bottom_sheet.dart';
 import 'package:provider/provider.dart';
 
 import 'left_balloon.dart';
@@ -29,8 +30,7 @@ class _ChatScreenState extends State<ChatScreen> {
         backgroundColor: Colors.white,
         actions: [
           IconButton(
-            onPressed: () =>
-                context.read<FetchMessageProvider>().fetchMessageList(),
+            onPressed: () => UserBottomSheet().showBottomSheet(context),
             icon: const Icon(
               Icons.supervised_user_circle,
               color: Colors.blue,
